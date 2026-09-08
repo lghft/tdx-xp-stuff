@@ -575,7 +575,7 @@ function updateTable(data) {
 function update() {
   const mn = parseInt(document.getElementById('minNum').value);
   const mx = parseInt(document.getElementById('maxNum').value);
-  if (isNaN(mn) || isNaN(mx) || mn < 50 || mx > 999 || mn >= mx) return;
+  if (isNaN(mn) || isNaN(mx) || mn < 50 || mx > 9999 || mn >= mx) return;
   const data = getData();
   updateStats(data);
   if (activeTab === 'chart') updateChart(data);
@@ -607,8 +607,8 @@ function syncSliderNum(sliderId, numId) {
 
   function clamp(v) {
     const other = parseInt(document.getElementById(isMin ? 'maxNum' : 'minNum').value);
-    if (isMin) return Math.max(50, Math.min(isNaN(other) ? 999 : other - 1, v));
-    else        return Math.min(999, Math.max(isNaN(other) ? 50  : other + 1, v));
+    if (isMin) return Math.max(50, Math.min(isNaN(other) ? 9999 : other - 1, v));
+    else        return Math.min(9999, Math.max(isNaN(other) ? 50  : other + 1, v));
   }
 
   slider.addEventListener('input', () => {
